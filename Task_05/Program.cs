@@ -1,4 +1,4 @@
-﻿/*
+/*
  * 5) Написать метод, вычисляющий значение функции G=F(X)
  * 𝐺=sin⁡(𝜋/2),𝑋≤0.5
  * 𝐺=sin⁡((𝜋∙(𝑥−1))/2),𝑋>0.5
@@ -23,28 +23,29 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
-namespace Task_05 {
-	class Program {
-		static void Main(string[] args) {
-			// TODO : Сменить локаль на "ru-RU" для ввода чисел с плавующей точкой.
-
+namespace Task_01
+{
+	class Program
+	{
+		static void Main()
+		{
+			CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
 			double x;
-			// TODO : Считать точку.
+			double.TryParse(Console.ReadLine(), out x);
 
-
-			Console.WriteLine(G(x));
+			Console.WriteLine($"{G(x):f2}");
 
 		}
 
-		public static double G(double x) {
-			double res = 0;
+		public static double G(double x)
+		{
+			double res;
 
-			// TODO : Реализовать вычисление функции G.
+			if (x <= 0.5)
+				res = 1;
+			else res = Math.Sin(Math.PI * (x-1)/2);
 
 			return res;
 		}
